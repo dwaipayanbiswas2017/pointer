@@ -1,0 +1,107 @@
+****************************
+	POINTER
+    -Dwaipayan Biswas
+****************************
+
+Page : 1 [Memory in C]
+
+1. In 'C' every variables occupied a 1D like memory interface,
+2. Every variables takes memory of different length according to the types,
+3. Every memory has their own addresses,
+4. It is possible to access this variables using the address rather than variable name,
+
+Page : 2 [Pointer]
+
+1. Pointer is a variable, which store the address of another variable,
+2. A variables can be different size, but pointer size is same as architecture defined.
+3. Pointer hold the base address of a variable which length is >1,
+4. Pointer data types is used in pointer arithmatic,
+5. & -> address operator, * -> derefferencing or indirection operator
+
+Page : 3 [Advantages of Pointer]
+
+1. It is faster to access through pointers compare than variable name,
+2. In dynamically created DS naming is not possible, where pointer become a good solution,
+3. It allows passing of arrays, strings & structure to functions more efficiently,
+4. It makes possible to return more than one value from the function,
+
+Page : 4 [Pointer & Function]
+
+1. Two ways to pass parameter in function: 
+	a. call by value, [func(a, b)]
+	b. call by reference, [func(&a, &b)]
+2. Example with swap functions
+
+Page : [Pointer, Array & Address Arithmetic]
+
+1. Array name can be act as a pointer,
+2. A Pointer is a variable, but array name is numonic,
+3. Suppose, int a[5], where int = 2B,
+   *a = a[0],
+   *(a + i) = a + (i * sizeof(type of 'a')),
+   (a + i) = &a[i]
+   int *p;
+   p = &a[0]; then, 
+   (p+i) = &a[i];
+   *(p+i) = a[i] = p[i];
+   (p+i) = p+(i*sizeof(typeof 'p')) = (a+i) = &a[i]
+
+4. Not allowed:
+   a = a++;
+   a = p;
+   Allowed:
+   p = p++;
+   p = a;
+
+Page : [Valid Pointer operations]
+
+1. Assignment of pointers of same type,
+2. Adding or substracting a pointer and an int,
+3. Substracting or comparing two pointers to members of same array,
+4. Assigning or comparing to zero.
+
+Page : [Character arrays & Pointers]
+
+1. Defining array of characters
+	char a[] = "GCETTB"; [modifiable]
+	char *p  = "GCETTB"; [not modifiable, beacuase its a string constant]
+2. Example: strcpy(char *, char *)
+
+Page : [Array of Pointers]
+
+1. As pointers are variables it can be declared as array of Pointers,
+2. Array of Pointer is similar to multidimentional array,
+3. Array of Pointer is more space efficient than the multidimentional array,
+
+Page : [Dynamic memory allocation]
+
+1. There is many ways memory can be allocated,
+2.	Static : Allocate on compiletime. Global & static variables,
+	Local : Allocate on function call. Stored in Stack. Local variables.
+	Dynamic : Allocate on runtime, stored in Heap. 
+3. malloc() : void * malloc(size) ; 
+	“malloc” or “memory allocation” method in C is used to dynamically allocate a single large block of memory with the specified size.
+	It initializes each block with default garbage value. 
+	*ptr = (data-type *)malloc(byte-size);
+
+4. calloc() : void * calloc(n, block-size)
+	“calloc” or “contiguous allocation” method in C is used to dynamically allocate the specified number of blocks of memory of the specified type. 
+	It initializes each block with a default value ‘0’.
+	*ptr = (data-type*)calloc(n, element-size);
+
+5. realloc() : void * realloc(ptr, newSize)
+	if the memory previously allocated with the help of malloc or calloc is insufficient,
+	realloc can be used to dynamically re-allocate memory.
+	ptr = realloc(ptr, n * ByteSize);
+
+6. free() : 
+	“free” method in C is used to dynamically de-allocate the memory. 
+	The memory allocated using functions malloc() and calloc() is not de-allocated on their own.
+	Hence the free() method is used, whenever the dynamic memory allocation takes place.
+
+Page : [Segmentation fault]
+
+1. Core Dump/Segmentation fault is a specific kind of error caused by accessing memory that “does not belong to you.”
+2. When a piece of code tries to do read and write operation in a read only location in memory or freed block of memory.
+3. It is an error indicating memory corruption.
+
